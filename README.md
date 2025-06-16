@@ -15,12 +15,20 @@ It creates timestamped backup files, retains a fixed number of backups, and auto
 ---
 
 ## 🚀 Usage
-
+```java
 ### Create a Backup
-
-
 Backup backup = new Backup();
 boolean result = backup.createBackup("path/to/dbfile.db", "path/to/backup/folder");
+```
+Returns true if the backup was successful, otherwise false.
+
+Check for Backup Availability
+```java
+boolean available = backup.isBackupAvailable("path/to/backup/folder");
+```
+Returns true if at least one backup exists.
+
+---
 
 # 🔁 Android / Java / SQLite Restore Utility
 
@@ -48,3 +56,33 @@ boolean result = restore.restoreBackup(
     "backups/emmc",
     "backups/sdcard"
 );
+```
+Returns true if restore is successful, otherwise false.
+
+🛠️ Method Description
+restoreBackup(String dbPath, String sMMCBackupPath, String sdCardBackupPath)
+Parameter	Description
+dbPath	Path to the database file that will be restored (overwritten)
+sMMCBackupPath	Path to the internal (eMMC) backup folder
+sdCardBackupPath	Path to the SD card backup folder
+
+The method automatically chooses the most recent backup between the two paths.
+
+📁 Folder Structure Example
+/project-root
+  ├── /backups
+  │     ├── /emmc
+  │     │     └── backup_15_06_2025_20_00_00.db
+  │     └── /sdcard
+  │           └── backup_15_06_2025_21_30_00.db
+  └── /data
+        └── database.db
+
+
+⚠️ Notes
+Ensure that no other process is using the database while restoring.
+Only the most recent .db file is used during restoration.
+Supports file-based databases such as SQLite.
+
+📜 License
+MIT License — © 2025 Impintell
