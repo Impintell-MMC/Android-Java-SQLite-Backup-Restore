@@ -1,4 +1,4 @@
-package com.impintell.intelliboxcounter.adapter;
+
 
 import java.io.File;
 import java.io.FileInputStream;
