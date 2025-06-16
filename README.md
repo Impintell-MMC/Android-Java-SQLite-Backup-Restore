@@ -1,4 +1,4 @@
-# 💾 IntelliBoxCounter Backup Utility
+# 💾 Android / Java / SQLite Backup Utility
 
 This Java class provides a simple yet robust backup solution for file-based databases such as SQLite.  
 It creates timestamped backup files, retains a fixed number of backups, and automatically deletes older ones.
