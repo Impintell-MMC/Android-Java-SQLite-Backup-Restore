@@ -18,6 +18,33 @@ It creates timestamped backup files, retains a fixed number of backups, and auto
 
 ### Create a Backup
 
-```java
+
 Backup backup = new Backup();
 boolean result = backup.createBackup("path/to/dbfile.db", "path/to/backup/folder");
+
+# 🔁 Android / Java / SQLite Restore Utility
+
+This Java class provides functionality to restore a database file from the most recent backup available either on the device's internal storage (eMMC) or an external SD card.
+
+---
+
+## 🔧 Features
+
+- ✅ Automatically selects the most recent backup file
+- ✅ Supports restoring from two separate directories (eMMC and SD card)
+- ✅ Simple byte stream copy for fast and effective restoration
+- ✅ Minimal dependencies and easy integration
+
+---
+
+## 🚀 Usage
+
+### Restore from Latest Backup
+
+```java
+Restore restore = new Restore();
+boolean result = restore.restoreBackup(
+    "data/database.db",
+    "backups/emmc",
+    "backups/sdcard"
+);
